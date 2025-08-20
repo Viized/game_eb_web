@@ -1,0 +1,232 @@
+/* === BASE LAYOUT === */
+body {
+  margin: 0;
+  padding: 0;
+  color: rgb(52, 8, 45);
+  font-family: "Special Elite", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  background: #000; /* fallback color */
+  position: relative;
+}
+
+/* Keep all content above animated background */
+body * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Animated background layer */
+body::before {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  width: 200vw;
+  height: 200vh;
+  left: -50vw;
+  top: -50vh;
+  background: url("pic/overlay.png") repeat;
+  background-size: cover;
+  animation: bgDrift 15s linear infinite;
+  will-change: transform;
+}
+
+@keyframes bgDrift {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-400px, -400px, 0); }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  body::before { animation: none; }
+}
+
+/* === CUSTOM CURSORS === */
+html, body, * {
+  cursor: url("pic/cursor1.png") 6 4, auto !important;
+}
+
+input, textarea, [contenteditable="true"] {
+  cursor: text !important;
+}
+
+a, a:hover, a:focus, a:active,
+button, button:hover, button:focus, button:active,
+[role="button"], [role="button"]:hover, [role="button"]:focus, [role="button"]:active,
+label, summary {
+  cursor: url("pic/cursor1.png") 0 0, pointer !important;
+}
+
+/* === TITLES & NAV === */
+/* Parent container to center title */
+.title-wrapper {
+  text-align: center; /* centers inline/inline-flex children */
+  margin-top: 5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Title itself */
+.indextitle {
+  display: inline-flex; /* shrink to fit text */
+  justify-content: center;
+  align-items: center;
+  padding: 0.4em 0.8em;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #38ff7a;
+  border-color: #38ff7a;
+  border-width: 4px 8px 2px 8px;
+  border-radius: 10px;
+  box-shadow: inset -10px 10px 10px rgba(0, 123, 255, 0.45);
+}
+
+.phone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* space between the two items */
+    font-family: 'Bytesized', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    gap: 2.5rem;
+}
+
+.phone a {
+    color: rgb(68, 31, 90);
+    text-decoration: none;
+}
+.phone a:hover {
+    color: #b316b3;
+    text-decoration: underline;
+}
+
+.phone .watch-days {
+    color: #f34dffdb;
+    font-family: 'Special Elite', cursive;
+    font-size:1.1rem;
+}
+
+nav.homebasesub {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 5rem;
+}
+
+nav.homebasesub a {
+  margin: 0 10px;
+  color: rgb(0, 194, 4);
+}
+nav.homebasesub a:hover {
+  text-decoration-thickness: 3px;
+  color: rgb(117, 255, 172);
+}
+
+/* === IMAGE LAYOUT === */
+.imagecontainer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 1.5rem;
+}
+
+.imagecontainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.imagecontainer img {
+  width: 100px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.text-block {
+  text-align: right;
+  line-height: 0.8rem;
+  color: #f34dff;
+  font-size: 1rem;
+}
+
+.right-img {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+
+/* === WINDOW SYSTEM === */
+#desktop {
+  position: relative;
+  min-height: 100vh;
+}
+
+.win {
+  position: absolute;
+  background: rgba(26, 48, 136, 0.85);
+  backdrop-filter: blur(2px);
+  border: 2px solid #38ff7a;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(102, 255, 0, 0.4); /* green glow */
+  color: #f5e9ff;
+  user-select: none;
+  will-change: left, top;
+}
+
+.win.active {
+  box-shadow:
+    0 10px 30px rgba(102, 255, 0, 0.4), /* keep glow */
+    0 14px 40px rgba(0, 0, 0, 0.6);     /* extra depth */
+}
+
+/* === TITLEBAR === */
+.titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background: #120c2f;
+  border-bottom: 2px solid #38ff7a;
+  border-radius: 8px 8px 0 0;
+  cursor: grab;
+  touch-action: none;
+}
+.titlebar:active {
+  cursor: grabbing;
+}
+
+/* Buttons in titlebar */
+.btns {
+  display: flex;
+  gap: 6px;
+}
+.btns button {
+  all: unset;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  border: 1px solid #38ff7a;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* === WINDOW CONTENT === */
+.content {
+  padding: 12px 14px 16px;
+  font-size: 0.8rem;
+  color: #f7ff09;
+}
+
+/* === DVD LOGO === */
+#dvd {
+  position: fixed;
+  left: 0; top: 0;
+  width: 120px;
+  height: auto;
+  z-index: 998;
+  will-change: transform;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,.35));
+}
