@@ -303,13 +303,15 @@ nav.homebasesub a:hover {
 
 .item {
   display: flex;
-  justify-content: center; /* ✅ center the whole group */
+  justify-content: center; /* center contents */
   align-items: flex-start;
-  flex-wrap: wrap; /* allow wrapping on smaller screens */
-  gap: 40px; /* spacing between left and right blocks */
-  padding: 0 20px; /* small side padding for safety */
-  margin: 0 auto; /* ✅ auto margins center the flex container */
-  max-width: 1000px; /* limit overall width so it doesn’t sprawl */
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 0 20px;
+
+  margin: 0 auto; /* ✅ centers the whole item block */
+  max-width: 1000px; /* ✅ keeps the whole block narrower */
+  width: 100%; /* stretch container but keep content centered */
 }
 
 .img-container {
