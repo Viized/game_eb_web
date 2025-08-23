@@ -305,20 +305,21 @@ nav.homebasesub a:hover {
   display: flex;
   justify-content: center; /* center contents */
   align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 40px;
-  padding: 0 20px;
-
-  margin: 0 auto; /* ✅ centers the whole item block */
-  max-width: 1000px; /* ✅ keeps the whole block narrower */
-  width: 100%; /* stretch container but keep content centered */
+  flex-wrap: wrap; /* stack on small screens */
+  gap: 40px; /* gap between left and right */
+  padding: 0 30px; /* some breathing space on sides */
+  margin: 0 auto; /* center block on page */
+  max-width: 1000px; /* prevents overly wide layout */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .img-container {
+  flex: 0 0 auto; /* fixed size, no stretch */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 20px; /* vertical gap between image and cite */
+  gap: 20px;
 }
 
 .img-box {
@@ -350,14 +351,12 @@ nav.homebasesub a:hover {
 }
 
 .description-box {
-  flex: 1;
-  min-width: 320px;
-  max-width: 600px;
-  min-height: 200px;
-  max-height: 400px;
+  flex: 1; /* grow naturally */
+  min-width: 360px; /* minimum for readability */
+  max-width: 600px; /* not too wide */
+  max-height: 420px; /* ✅ scrollable if long */
   border: 1px solid #ccc;
   padding: 20px;
-  margin-right: 50px; /* ✅ add spacing on the right */
   background: #fff;
   overflow-y: auto;
 
