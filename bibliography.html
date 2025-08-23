@@ -1,174 +1,402 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome|Base Home</title>
-    <link rel="stylesheet" href="./style_index.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bytesized&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
+html,
+body {
+  height: 100%;
+  overflow-y: auto; /* ✅ allow page scroll */
+}
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+#desktop {
+  position: relative;
+  min-height: 100vh; /* ✅ at least full viewport */
+  height: auto; /* ✅ grows with content */
+  overflow-y: auto; /* ✅ allow scrolling */
+}
 
-  <body>
-    <a href="index.html" class="back-btn">Back to Index</a>
+body {
+  margin: 0;
+  padding: 0;
+  color: rgb(52, 8, 45);
+  font-family: "Special Elite", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  background: #000; /* fallback color */
+  position: relative;
+}
 
-    <div class="title-wrapper">
-      <div class="indextitle">Futures Machinery Watchtower</div>
-    </div>
+/* Keep all content above animated background */
+body * {
+  position: relative;
+  z-index: 1;
+}
 
-    <div class="phone">
-      <a href="contact.html">(825)027-VZED</a>
-      <span class="watch-days">Days Under Watch: 377</span>
-    </div>
+/* Animated background layer */
+body::before {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  width: 200vw;
+  height: 200vh;
+  left: -50vw;
+  top: -50vh;
+  background: url("pic/overlay.png") repeat;
+  background-size: cover;
+  animation: bgDrift 15s linear infinite;
+  will-change: transform;
+}
 
-    <nav class="homebasesub">
-      <a href="about.html" class="tab-link">About</a>
-      <a href="bibliography.html" class="tab-link">Books</a>
-      <a href="research.html" class="tab-link">Blogs&Journals</a>
-      <a href="found.html" class="tab-link">Found/Recovered</a>
-      <a href="contact.html" class="tab-link">Contact</a>
-    </nav>
+@keyframes bgDrift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-400px, -400px, 0);
+  }
+}
 
-    <div class="item">
-      <div class="img-container">
-        <div class="img-box">
-          <img src="pic/Hunt.png" alt="HuntWorn" />
-        </div>
-        <div class="cite-box">
-          Hunt, Carole. “Worn Clothes and Textiles as Archives of Memory.”<br /><br />
-          <i>Critical Studies in Fashion & Beauty</i>, vol. 5, no. 2, 2014, pp.
-          207–232. doi:10.1386/csfb.5.2.207_1.
-        </div>
-      </div>
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
+}
 
-      <div class="description-box">
-        <p>
-          Box
-          This is by far the most and the only essay that connects most of the
-          scholars and materials I searched on, including: Matter and Time from
-          Bergson, Benjamin, the concept of "thing" and "thingness" from
-          Heidegger, materials/ materiality/ material culture from Daniel
-          Miller, A Poetics of Space from Bachelard, and many. Concepts such as
-          mnemonic, involuntary memory, and archivization are also discussed.
-          Responding to the way I want the game to be structured, it also
-          analyzes how materials, in this case textiles, can not only help to
-          generate memories and keep through traces, which may enable memory
-          stimulation and sensory reexperiences differing from individual to
-          individual across the boudaries of space and the limitation of time,
-          but also assist in reconstructing and recollecting with the
-          unavoidable risk/products of mixing and creating with the haunting of
-          the present, whether we want or even realize them or not.
-        </p>
+/* === CUSTOM CURSORS === */
+html,
+body,
+* {
+  cursor: url("pic/cursor1.png") 6 4, auto !important;
+}
 
-        <p>
-          In the abstract and introduction, Hunt starts with our common
-          misunderstanding of how we normally frame materials, working purely as
-          portals for meanings greater than and beyond them, while neglecting
-          the fact that materials themselves are actively involved in the
-          sensemaking process, and their "thingness" even when working as tools
-          for artistic expression. (Howes and Attfield) "...material culture
-          offers an understanding of how people make sense of the world through
-          physical objects."Then it goes on talking about why and how one could
-          generate more based on already existing memories, using Woolf's
-          writings related to seemingly unreasonable and questionable details of
-          the involuntary memory of the past. I wasn't quite realizing how
-          deeply I manipulate my past and dreams until I started to document
-          them because of my current work and journals. (Bal) "...as an activity
-          occurring in the present, in which the past is continuously modified
-          and redescribed." I used to held a very negative and passive feeling
-          about this, but since tertiary retention and Stiegler, right now, I am
-          more convinced that (especially during the age of digital), we might
-          win a chance to take advantage of this if we constantly reflect on the
-          instability through self-driven recollecting of the memory and
-          actively making new connections between stuffs. (Stiegler, resist
-          against the lose of individuality) (Stop accepting external and
-          passive systems of categorization like core aesthetics.) Susan
-          Stewart: On Longing, "Micrographia".
-        </p>
+input,
+textarea,
+[contenteditable="true"] {
+  cursor: text !important;
+}
 
-        <p>
-          In section B Application, starting with Derrida's archivization and
-          archive fever, it explains how archivization is "consigning,
-          inscribing a trace in some external location, a space outside." The
-          concept reminds me of the different stages of memory from Stiegler,
-          and the essence of tertiary retention, which is what/how/why to
-          externalize memories. Part of my decision to choose the website and
-          users' own journals as a format of creation is also related to my
-          interest in how craft can not only be the medium of archive but the
-          archive itself. (it's drawing, wearables, sounds, fake
-          documentary/video clips...)
-        </p>
+a,
+a:hover,
+a:focus,
+a:active,
+button,
+button:hover,
+button:focus,
+button:active,
+[role="button"],
+[role="button"]:hover,
+[role="button"]:focus,
+[role="button"]:active,
+label,
+summary {
+  cursor: url("pic/cursor1.png") 0 0, pointer !important;
+}
 
-        <p>
-          B2. Themes of the 'Gigantic', I mainly focus on the discussion of the
-          capability of clothes to represent not only the signs and history of
-          wearing, standing as evidence of the past and the proof of people's
-          existence, but more importantly, they can become a site. In the second
-          set of the game, as I plan to put the semi-open closet that holds all
-          of my father's clothes and talk about my feelings on the gradually
-          faded smell of him on his clothes in the whole attic room environment,
-          my craft work as places for reliving and reflecting rather than just
-          representing the experiences. (wonders about the narrative and text
-          lines in the game) Meanwhile, making is a way to "rediscovered and
-          remembered rather than forgotten." (pixelated/ blurry art style at
-          this section)
-        </p>
+.back-btn {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  background: #120c2f;
+  color: #38ff7a; /* neon green, matches your theme */
+  border: 2px solid #38ff7a;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-family: "Special Elite", system-ui;
+  text-decoration: none;
+  z-index: 999; /* stay above windows */
+  box-shadow: 0 0 10px rgba(56, 255, 122, 0.6);
+  transition: all 0.2s ease;
+}
 
-        <p>
-          B3. Themes of the 'Miniature' sort of validate parts of my intention,
-          why I need my physical work to be portable, and why I want the whole
-          display space in the future to be a smaller, more intimate room.
-          (Bachelard, "the home as an 'archive', and for them to be accessible,
-          they have to be small, not only for the purpose of representing
-          intimacy through visually pleasing size.) Benjamin, "the homely is at
-          the same time 'unheimlich'"... backing the setting of mimicking the
-          plot of The Room, using waking up on bed as the starts of each sets
-          and scenes. Rooms filled with everyday objects and stuff are also
-          stages that allow plots and intense performances to happen...
-        </p>
+.back-btn:hover {
+  background: #38ff7a;
+  color: #120c2f;
+  box-shadow: 0 0 15px rgba(56, 255, 122, 0.9);
+}
 
-        <p>
-          In the conclusion, Hunt once again addresses the importance of
-          textiles working as THE material, and how they differ from others by
-          nature. How about digital, if I also regard digital game-making as a
-          way of crafting? Thinking more about the uniqueness of each physical
-          material and how that may shift if it happens in digital? Are the
-          digital merely the visual re-presentation of the actual materials, or
-          do they exist by themselves? To indicate different materials visually
-          by changing the setting in the shader or procedural nodes, are they
-          different or the same?
-        </p>
-      </div>
-    </div>
+/* === TITLES & NAV === */
+/* Parent container to center title */
+.title-wrapper {
+  text-align: center; /* centers inline/inline-flex children */
+  margin-top: 5rem;
+  margin-bottom: 1.5rem;
+}
 
-    <div class="item">
-      <div class="img-container">
-        <div class="img-box">
-          <img src="pic/Hunt.png" alt="AnotherAuthorWork" />
-        </div>
-        <div class="cite-box">
-          Doe, Jane. “Textiles, Memory, and Identity.”<br /><br />
-          <i>Journal of Material Culture</i>, vol. 12, no. 3, 2018, pp. 45–67.
-          doi:10.1234/jmc.12.3.45.
-        </div>
-      </div>
-      <div class="description-box">
-        <p>
-          This article explores how textiles intersect with cultural memory...
-        </p>
-        <p>Additional analysis here...</p>
-      </div>
-    </div>
-  </body>
-</html>
+/* Title itself */
+.indextitle {
+  display: inline-flex; /* shrink to fit text */
+  justify-content: center;
+  align-items: center;
+  padding: 0.4em 0.8em;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #38ff7a;
+  border-color: #38ff7a;
+  border-width: 4px 8px 2px 8px;
+  border-radius: 10px;
+  box-shadow: inset -10px 10px 10px rgba(0, 123, 255, 0.45);
+}
+
+.phone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* space between the two items */
+  font-family: "Bytesized", sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  gap: 2.5rem;
+}
+
+.phone a {
+  color: rgb(68, 31, 90);
+  text-decoration: none;
+}
+.phone a:hover {
+  color: #b316b3;
+  text-decoration: underline;
+}
+
+.phone .watch-days {
+  color: #f34dffdb;
+  font-family: "Special Elite", cursive;
+  font-size: 1.1rem;
+}
+
+nav.homebasesub {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 5rem;
+}
+
+nav.homebasesub a {
+  margin: 0 10px;
+  color: rgb(0, 194, 4);
+}
+nav.homebasesub a:hover {
+  text-decoration-thickness: 3px;
+  color: rgb(117, 255, 172);
+}
+
+/* === IMAGE LAYOUT === */
+.imagecontainer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 1.5rem;
+}
+
+.imagecontainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.imagecontainer img {
+  width: 100px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.text-block {
+  text-align: right;
+  line-height: 0.8rem;
+  color: #f34dff;
+  font-size: 1rem;
+}
+
+.right-img {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+
+/* === WINDOW SYSTEM === */
+#desktop {
+  position: relative;
+  min-height: 100vh;
+}
+
+.win {
+  position: absolute;
+  background: rgba(26, 48, 136, 0.85);
+  backdrop-filter: blur(2px);
+  border: 2px solid #38ff7a;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(102, 255, 0, 0.4); /* green glow */
+  color: #f5e9ff;
+  user-select: none;
+  will-change: left, top;
+}
+
+.win.active {
+  box-shadow: 0 10px 30px rgba(102, 255, 0, 0.4),
+    /* keep glow */ 0 14px 40px rgba(0, 0, 0, 0.6); /* extra depth */
+}
+
+/* === TITLEBAR === */
+.titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background: #120c2f;
+  border-bottom: 2px solid #38ff7a;
+  border-radius: 8px 8px 0 0;
+  cursor: grab;
+  touch-action: none;
+}
+.titlebar:active {
+  cursor: grabbing;
+}
+
+.titlebar-link {
+  flex: 1; /* let it fill the left space */
+  color: #fff; /* visible on dark background */
+  text-decoration: none; /* remove underline */
+  font-size: 14px;
+  line-height: 1.4;
+  cursor: pointer; /* pointer cursor */
+  user-select: auto; /* allow text selection */
+  -webkit-user-drag: auto; /* allow clicking instead of dragging */
+  pointer-events: auto; /* ensure it's clickable */
+}
+
+.titlebar-link:hover {
+  text-decoration: underline;
+}
+
+.content a {
+  color: #856ab9; /* bright yellow, good contrast */
+  text-decoration: underline; /* remove underline */
+  font-weight: bold;
+  font-size: large;
+}
+
+.content a:hover {
+  text-decoration: underline;
+  color: #fff176; /* softer highlight on hover */
+}
+
+/* Buttons in titlebar */
+.btns {
+  display: flex;
+  gap: 6px;
+}
+.btns button {
+  all: unset;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  border: 1px solid #38ff7a;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* === WINDOW CONTENT === */
+.content {
+  padding: 12px 14px 16px;
+  font-size: 0.8rem;
+  color: #f7ff09;
+}
+
+/* === DVD LOGO === */
+#dvd {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 120px;
+  height: auto;
+  z-index: 998;
+  will-change: transform;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.35));
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap; /* stack on small screens */
+  gap: 40px; /* gap between left and right */
+  padding: 0 30px; /* breathing room on sides */
+  max-width: 1000px;
+  width: 100%;
+  box-sizing: border-box;
+
+  margin-top: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 150px; /* spacing between items */
+}
+
+/* Only items after the first get extra top spacing */
+.item + .item {
+  margin-top: 150px;
+}
+
+.img-container {
+  flex: 0 0 auto; /* fixed size, no stretch */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.img-box {
+  width: 200px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cite-box {
+  width: 200px;
+  padding: 10px;
+  background: #f4f4f4;
+  border: 5px solid #38ff7a;
+  box-sizing: border-box;
+
+  font-family: "Merriweather", Georgia, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #222;
+}
+
+.description-box {
+  flex: 1; /* grow naturally */
+  min-width: 360px; /* minimum for readability */
+  max-width: 600px; /* not too wide */
+  max-height: 420px; /* ✅ scrollable if long */
+  border: 1px solid #ccc;
+  border-radius: 6px; /* softer corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* subtle lift */
+  padding: 20px;
+  background: #fff;
+  overflow-y: auto;
+
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #222;
+  text-align: justify;
+}
+
+/* Paragraph styling */
+.description-box p {
+  text-indent: 30px;
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+
+.description-box p:first-child {
+  margin-top: 0;
+}
