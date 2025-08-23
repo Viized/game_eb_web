@@ -303,22 +303,24 @@ nav.homebasesub a:hover {
 
 .item {
   display: flex;
-  justify-content: space-between; /* image left, text right */
+  justify-content: center; /* ✅ center the whole group */
   align-items: flex-start;
   flex-wrap: wrap; /* allow wrapping on smaller screens */
-  gap: 40px; /* horizontal gap between image+cite and text */
-  padding: 0 50px; /* overall left/right spacing */
+  gap: 40px; /* spacing between left and right blocks */
+  padding: 0 20px; /* small side padding for safety */
+  margin: 0 auto; /* ✅ auto margins center the flex container */
+  max-width: 1000px; /* limit overall width so it doesn’t sprawl */
 }
 
 .img-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* align both left */
+  align-items: flex-start;
   gap: 20px; /* vertical gap between image and cite */
 }
 
 .img-box {
-  width: 200px; /* 👈 your chosen image width */
+  width: 200px;
   height: 150px;
   overflow: hidden;
 }
@@ -337,26 +339,27 @@ nav.homebasesub a:hover {
   border: 5px solid #38ff7a;
   box-sizing: border-box;
 
-  font-family: "Merriweather", Georgia, serif; /* modern serif */
-  font-style: normal; /* upright, not italic */
-  font-weight: 400; /* regular weight */
+  font-family: "Merriweather", Georgia, serif;
+  font-style: normal;
+  font-weight: 400;
   font-size: 15px;
   line-height: 1.6;
   color: #222;
 }
+
 .description-box {
-  max-width: 600px;       /* adjusts to screen, but never exceeds 600px */
-  width: 100%;            /* take available width */
-  min-height: 200px;      /* grows with content */
-  max-height: 80vh;       /* so it doesn’t exceed screen height */
+  flex: 1; /* let it expand, but respect min/max */
+  min-width: 320px; /* never too narrow */
+  max-width: 600px; /* ✅ keeps line length readable */
+  max-height: 70vh; /* fit within screen */
   border: 1px solid #ccc;
-  padding: 0 15px 15px 15px;
+  padding: 12px 18px; /* more breathing room */
   background: #fff;
   overflow-y: auto;
 
   font-family: "Roboto", Arial, sans-serif;
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 16px; /* slightly bigger for comfort */
+  line-height: 1.7; /* airy spacing */
   color: #222;
   text-align: justify;
 }
@@ -369,7 +372,5 @@ nav.homebasesub a:hover {
 }
 
 .description-box p:first-child {
-  margin-top: 0;  /* remove gap for first paragraph */
-}
-
+  margin-top: 0;
 }
