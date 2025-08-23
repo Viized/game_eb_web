@@ -308,7 +308,7 @@ nav.homebasesub a:hover {
   flex-wrap: wrap; /* stack on small screens */
   gap: 40px; /* gap between left and right */
   padding: 0 30px; /* some breathing space on sides */
-  margin: 0 auto; /* center block on page */
+  margin: 180px auto; /* center block on page */
   max-width: 1000px; /* prevents overly wide layout */
   width: 100%;
   box-sizing: border-box;
