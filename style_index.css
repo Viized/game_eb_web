@@ -344,15 +344,15 @@ nav.homebasesub a:hover {
   line-height: 1.6;
   color: #222;
 }
-
 .description-box {
-  width: 500px;
-  height: 500px;
+  max-width: 600px;       /* adjusts to screen, but never exceeds 600px */
+  width: 100%;            /* take available width */
+  min-height: 200px;      /* grows with content */
+  max-height: 80vh;       /* so it doesn’t exceed screen height */
   border: 1px solid #ccc;
-  padding: 0px 5px 5px 5px;
+  padding: 0 15px 15px 15px;
   background: #fff;
   overflow-y: auto;
-  text-indent: 30px;
 
   font-family: "Roboto", Arial, sans-serif;
   font-size: 15px;
@@ -361,12 +361,15 @@ nav.homebasesub a:hover {
   text-align: justify;
 }
 
+/* Paragraph styling */
 .description-box p {
-  text-indent: 30px; /* indent first line */
-  margin-top: 1em; /* spacing between paragraphs */
-  margin-bottom: 0; /* remove extra gap below */
+  text-indent: 30px;
+  margin-top: 1em;
+  margin-bottom: 0;
 }
 
 .description-box p:first-child {
-  margin-top: 0;
+  margin-top: 0;  /* remove gap for first paragraph */
+}
+
 }
