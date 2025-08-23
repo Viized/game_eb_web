@@ -324,7 +324,7 @@ nav.homebasesub a:hover {
   width: 100%;
   box-sizing: border-box;
 
-  
+  margin-top: 90px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 150px; /* spacing between items */
@@ -372,16 +372,19 @@ nav.homebasesub a:hover {
 }
 
 .description-box {
-  flex: 1; /* grow naturally */
-  min-width: 360px; /* minimum for readability */
-  max-width: 600px; /* not too wide */
-  max-height: 420px; /* ✅ scrollable if long */
+  flex: 1;
+  min-width: 360px;
+  max-width: 600px;
+  max-height: 420px;
   border: 1px solid #ccc;
-  border-radius: 6px; /* softer corners */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* subtle lift */
-  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 0 20px 20px; /* ✅ top=0, left/right=20px, bottom=20px */
   background: #fff;
   overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
 
   font-family: "Roboto", Arial, sans-serif;
   font-size: 15px;
@@ -390,13 +393,11 @@ nav.homebasesub a:hover {
   text-align: justify;
 }
 
-/* Paragraph styling */
 .description-box p {
   text-indent: 30px;
-  margin-top: 1em;
-  margin-bottom: 0;
+  margin: 1em 0 0;
 }
 
 .description-box p:first-child {
-  margin-top: 0;
+  margin-top: 0 !important; /* ✅ remove extra gap */
 }
