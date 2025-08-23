@@ -320,14 +320,19 @@ nav.homebasesub a:hover {
   flex-wrap: wrap; /* stack on small screens */
   gap: 40px; /* gap between left and right */
   padding: 0 30px; /* breathing room on sides */
-  margin: 150px auto; /* ✅ vertical spacing between blocks */
   max-width: 1000px;
   width: 100%;
   box-sizing: border-box;
+
+  margin-top: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 150px; /* spacing between items */
 }
 
+/* Only items after the first get extra top spacing */
 .item + .item {
-  margin-top: 80px; /* ✅ extra vertical space only between consecutive items */
+  margin-top: 150px;
 }
 
 .img-container {
