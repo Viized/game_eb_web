@@ -300,3 +300,73 @@ nav.homebasesub a:hover {
   pointer-events: none;
   filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.35));
 }
+
+.item {
+  display: flex;
+  justify-content: space-between; /* image left, text right */
+  align-items: flex-start;
+  flex-wrap: wrap; /* allow wrapping on smaller screens */
+  gap: 40px; /* horizontal gap between image+cite and text */
+  padding: 0 50px; /* overall left/right spacing */
+}
+
+.img-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* align both left */
+  gap: 20px; /* vertical gap between image and cite */
+}
+
+.img-box {
+  width: 200px; /* 👈 your chosen image width */
+  height: 150px;
+  overflow: hidden;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cite-box {
+  width: 200px;
+  padding: 10px;
+  background: #f4f4f4;
+  border: 5px solid #38ff7a;
+  box-sizing: border-box;
+
+  font-family: "Merriweather", Georgia, serif; /* modern serif */
+  font-style: normal; /* upright, not italic */
+  font-weight: 400; /* regular weight */
+  font-size: 15px;
+  line-height: 1.6;
+  color: #222;
+}
+
+.description-box {
+  width: 500px;
+  height: 500px;
+  border: 1px solid #ccc;
+  padding: 0px 5px 5px 5px;
+  background: #fff;
+  overflow-y: auto;
+  text-indent: 30px;
+
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #222;
+  text-align: justify;
+}
+
+.description-box p {
+  text-indent: 30px; /* indent first line */
+  margin-top: 1em; /* spacing between paragraphs */
+  margin-bottom: 0; /* remove extra gap below */
+}
+
+.description-box p:first-child {
+  margin-top: 0;
+}
