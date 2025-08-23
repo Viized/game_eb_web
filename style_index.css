@@ -356,6 +356,8 @@ nav.homebasesub a:hover {
   max-width: 600px; /* not too wide */
   max-height: 420px; /* ✅ scrollable if long */
   border: 1px solid #ccc;
+  border-radius: 6px; /* softer corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* subtle lift */
   padding: 20px;
   background: #fff;
   overflow-y: auto;
