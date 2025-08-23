@@ -1,4 +1,16 @@
-/* === BASE LAYOUT === */
+html,
+body {
+  height: 100%;
+  overflow-y: auto; /* ✅ allow page scroll */
+}
+
+#desktop {
+  position: relative;
+  min-height: 100vh; /* ✅ at least full viewport */
+  height: auto; /* ✅ grows with content */
+  overflow-y: auto; /* ✅ allow scrolling */
+}
+
 body {
   margin: 0;
   padding: 0;
