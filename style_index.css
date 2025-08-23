@@ -303,15 +303,19 @@ nav.homebasesub a:hover {
 
 .item {
   display: flex;
-  justify-content: center; /* center contents */
+  justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap; /* stack on small screens */
   gap: 40px; /* gap between left and right */
-  padding: 0 30px; /* some breathing space on sides */
-  margin: 180px auto; /* center block on page */
-  max-width: 1000px; /* prevents overly wide layout */
+  padding: 0 30px; /* breathing room on sides */
+  margin: 150px auto; /* ✅ vertical spacing between blocks */
+  max-width: 1000px;
   width: 100%;
   box-sizing: border-box;
+}
+
+.item + .item {
+  margin-top: 80px; /* ✅ extra vertical space only between consecutive items */
 }
 
 .img-container {
